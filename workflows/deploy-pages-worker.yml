@@ -1,0 +1,44 @@
+name: Deploy Pages + Worker
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Wrangler
+        run: npm install -g wrangler
+
+      - name: Publish Pages
+        env:
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+        run: |
+          wrangler pages project create aviva-pages --account-id $CF_ACCOUNT_ID || echo 'project exists'
+          wrangler pages publish public --project-name=aviva-pages --branch main
+
+      - name: Set JWT secret (from repo secret)
+        if: ${{ secrets.JWT_SECRET }}
+        env:
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+          JWT_SECRET: ${{ secrets.JWT_SECRET }}
+        run: |
+          printf "%s" "$JWT_SECRET" | wrangler secret put JWT_SECRET --account-id $CF_ACCOUNT_ID
+
+      - name: Publish Worker
+        env:
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+        run: wrangler publish
