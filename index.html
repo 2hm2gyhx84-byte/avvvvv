@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <link rel="manifest" href="/manifest.json">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Aviva-style Insurance Portal</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="brand">Aviva-style Insurance</h1>
+      <nav>
+        <a href="/login.html" class="btn btn-outline">Log in</a>
+        <a href="/register.html" class="btn">Get started</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="hero container">
+    <h2>Insurance made simple</h2>
+    <p>Secure portal for your policies, claims and documents.</p>
+    <div class="actions">
+      <a href="/register.html" class="btn large">Create an account</a>
+      <a href="/login.html" class="btn btn-outline large">Sign in</a>
+    </div>
+  </main>
+
+  <footer class="container footer">
+    
+  </footer>
+</body>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/js/service-worker.js');
+      });
+    }
+  </script>
+</html>

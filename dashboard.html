@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <link rel="manifest" href="/manifest.json">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dashboard — Aviva Portal</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <script>
+    window.API_BASE = 'https://aviva-portal-api.myaviva.workers.dev';
+  </script>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="brand">MyAviva Insurance</h1>
+      <nav>
+        <button id="logoutBtn" class="btn btn-outline">Log out</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div id="welcome" class="card">
+      <h2>Welcome</h2>
+      <p id="welcomeText">Loading...</p>
+    </div>
+
+    <section class="card">
+      <h3>Your policies</h3>
+      <div id="policiesContainer"></div>
+    </section>
+  </main>
+
+  <footer class="bottom-footer">
+    <button class="footer-btn" onclick="location.href='/dashboard.html'">Home</button>
+    <button class="footer-btn" onclick="location.href='/faq.html'">FAQ</button>
+    <button class="footer-btn" id="footerLogout">Logout</button>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script>
+    (async function(){
+      const me = await apiGet('/api/me');
+      if (!me.user) {
+        location.href = '/login.html';
+        return;
+      }
+      document.getElementById('welcomeText').textContent = `Hello, ${me.user.name} (${me.user.email})`;
+      
+      // Display sample policy
+      const policiesContainer = document.getElementById('policiesContainer');
+      const policyHTML = `
+        <div class="policy-card" onclick="location.href='/policy-details.html'" style="cursor:pointer;">
+          <span class="policy-number">687224</span>
+          <span class="policy-badge">Active</span>
+          <h4>VOLKSWAGEN GOLF SPORT FSI (115BHP)</h4>
+          <p class="policy-dates">Start: 15 March 2024 • End: 15 March 2025</p>
+        </div>
+      `;
+      policiesContainer.innerHTML = policyHTML;
+      document.getElementById('logoutBtn').addEventListener('click', async () => {
+        // Clear server session
+        try { await apiPost('/api/logout', {}); } catch (e) {}
+        localStorage.removeItem('aviva_token');
+        location.href = '/';
+      });
+      document.getElementById('footerLogout').addEventListener('click', async () => {
+        // Clear server session
+        try { await apiPost('/api/logout', {}); } catch (e) {}
+        localStorage.removeItem('aviva_token');
+        location.href = '/';
+      });
+    })();
+  </script>
+</body>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/js/service-worker.js');
+      });
+    }
+  </script>
+</html>

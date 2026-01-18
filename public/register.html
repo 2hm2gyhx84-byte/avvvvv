@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <link rel="manifest" href="/manifest.json">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Register — Aviva-style Portal</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="brand">Aviva-style Insurance</h1>
+      <nav>
+        <a href="/login.html" class="btn btn-outline">Log in</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container card">
+    <h2>Create account</h2>
+    <form id="registerForm">
+      <label>Full name
+        <input type="text" name="name" required />
+      </label>
+      <label>Email
+        <input type="email" name="email" required />
+      </label>
+      <label>Password
+        <input type="password" name="password" required />
+      </label>
+      <button type="submit" class="btn">Create account</button>
+    </form>
+    <p>Already have an account? <a href="/login.html">Sign in</a></p>
+  </main>
+
+  <script src="/js/main.js"></script>
+</body>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/js/service-worker.js');
+      });
+    }
+  </script>
+</html>

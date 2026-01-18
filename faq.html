@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <link rel="manifest" href="/manifest.json">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FAQ — MyAviva Insurance</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <script>
+    window.API_BASE = 'https://aviva-portal-api.myaviva.workers.dev';
+  </script>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="brand">MyAviva Insurance</h1>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="card">
+      <h2>Frequently Asked Questions</h2>
+      
+      <div class="faq-item">
+        <h3>How do I reset my password?</h3>
+        <p>You can reset your password by clicking "Forgot your details?" on the login page and following the instructions sent to your email.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How can I view my policies?</h3>
+        <p>After logging in to your MyAviva account, you can view all your policies in the dashboard under "Your policies".</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How do I make a claim?</h3>
+        <p>You can submit a claim through your dashboard or contact our customer support team for assistance.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Is my data secure?</h3>
+        <p>Yes, we use industry-standard encryption to protect your personal and financial information.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How do I contact support?</h3>
+        <p>You can reach our support team through the contact form on this website or call our customer service line.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bottom-footer">
+    <button class="footer-btn" onclick="location.href='/dashboard.html'">Home</button>
+    <button class="footer-btn" onclick="location.href='/faq.html'">FAQ</button>
+    <button class="footer-btn" id="footerLogout">Logout</button>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script>
+    (async function(){
+      const me = await apiGet('/api/me');
+      if (!me.user) {
+        location.href = '/login.html';
+        return;
+      }
+      document.getElementById('footerLogout').addEventListener('click', async () => {
+        try { await apiPost('/api/logout', {}); } catch (e) {}
+        localStorage.removeItem('aviva_token');
+        location.href = '/';
+      });
+    })();
+  </script>
+</body>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/js/service-worker.js');
+      });
+    }
+  </script>
+</html>

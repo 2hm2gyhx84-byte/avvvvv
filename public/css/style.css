@@ -1,0 +1,138 @@
+:root{
+  --navy:#002b45;
+  --yellow:#ffd400;
+  --muted:#6b7280;
+  --bg:#f6f8fb;
+  --card:#ffffff;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{font-family:Inter,Segoe UI,Arial; margin:0;background:var(--bg);color:#0b2540}
+.container{max-width:980px;margin:0 auto;padding:1rem}
+.site-header{background:var(--yellow);color:var(--navy);padding:1.5rem 0}
+.site-header .container{display:flex;align-items:center;justify-content:center}
+.brand{font-weight:900;margin:0;font-size:1.8rem;letter-spacing:2px}
+nav a.btn, nav button{margin-left:0.5rem}
+.btn{background:var(--yellow);color:var(--navy);border:none;padding:.6rem 1rem;border-radius:6px;text-decoration:none;cursor:pointer;font-weight:600;transition:all 0.2s}
+.btn:hover{opacity:0.9}
+.btn-outline{background:transparent;border:2px solid rgba(255,212,0,0.9);color:var(--yellow)}
+.btn-login{width:100%;padding:0.75rem;font-size:1rem;margin-top:1.5rem}
+.btn-register{background:transparent;border:2px solid var(--yellow);color:var(--navy);margin-top:1rem;width:100%}
+.hero{padding:4rem 1rem;text-align:center}
+.hero h2{font-size:2rem;margin:.5rem 0}
+.hero p{color:var(--muted)}
+.actions{margin-top:1rem}
+.large{padding:0.9rem 1.4rem}
+.card{background:var(--card);border-radius:8px;padding:1.25rem;margin:1rem 0;box-shadow:0 6px 18px rgba(11,37,64,0.06)}
+label{display:block;margin:0.6rem 0;color:var(--muted);font-size:0.95rem}
+input{width:100%;padding:.6rem;border-radius:6px;border:1px solid #e6e9ee;margin-top:.25rem;font-size:1rem}
+input:focus{outline:none;border-color:var(--navy);box-shadow:0 0 0 3px rgba(0,43,69,0.1)}
+.footer{padding:1rem 0;text-align:center;color:var(--muted)}
+
+/* Login Page Styles */
+.login-container{max-width:600px;margin:0 auto;padding:3rem 1rem}
+.login-box{background:transparent;padding:0;border-radius:0;box-shadow:none;margin-bottom:3rem}
+.login-box h2{font-size:2.2rem;margin:0 0 2rem 0;color:var(--navy);font-weight:400;letter-spacing:-0.5px}
+.form-group{margin-bottom:1.5rem}
+.form-group label{margin-bottom:0.4rem;display:block;font-weight:500;color:#333}
+.helper-text{margin:0.3rem 0 0.6rem 0;font-size:0.9rem;color:var(--muted)}
+.label-with-link{display:flex;justify-content:space-between;align-items:center}
+.show-password-link{color:#0066cc;text-decoration:none;font-size:0.9rem;cursor:pointer}
+.show-password-link:hover{text-decoration:underline}
+.checkbox-group{display:flex;align-items:center;gap:0.6rem;margin:1.2rem 0}
+.checkbox-group input{width:18px;height:18px;margin:0;cursor:pointer}
+.checkbox-label{margin:0;cursor:pointer;color:#333}
+.forgot-link{display:block;color:#0066cc;text-decoration:none;font-size:0.9rem;margin:1.2rem 0;text-align:center;cursor:pointer}
+.forgot-link:hover{text-decoration:underline}
+.btn-login{width:100%;padding:0.85rem;font-size:1rem;margin-top:2rem;font-weight:600}
+
+.registration-box{background:transparent;padding:0;border-radius:0;box-shadow:none;text-align:center;padding-top:2rem;border-top:1px solid #e6e9ee;margin-top:2rem}
+.registration-box h2{font-size:2.2rem;margin:1.5rem 0 1rem 0;color:var(--navy);font-weight:400;letter-spacing:-0.5px}
+.registration-box p{color:var(--muted);margin:0 0 2rem 0;line-height:1.6;font-size:0.95rem}
+.btn-register{background:transparent;border:none;color:var(--navy);padding:0;text-decoration:none;cursor:pointer;font-size:0.9rem}
+.btn-register:hover{text-decoration:underline}
+
+@media(max-width:768px){
+  .login-container{padding:2rem 1rem}
+  .login-box h2, .registration-box h2{font-size:1.8rem}
+}
+
+
+@media(min-width:700px){.hero{padding:6rem 1rem}}
+
+/* Bottom Footer */
+.bottom-footer{display:flex;gap:1rem;padding:1.5rem;background:var(--navy);position:fixed;bottom:0;left:0;right:0;justify-content:center;box-shadow:0 -2px 8px rgba(0,0,0,0.1)}
+body{padding-bottom:100px}
+.footer-btn{background:var(--yellow);color:var(--navy);border:none;padding:0.7rem 2rem;border-radius:6px;cursor:pointer;font-weight:600;flex:1;max-width:200px;transition:all 0.2s}
+.footer-btn:hover{opacity:0.9;transform:translateY(-2px)}
+
+/* FAQ Styles */
+.faq-item{margin:1.5rem 0;padding-bottom:1.5rem;border-bottom:1px solid #e6e9ee}
+.faq-item h3{margin:0 0 0.5rem 0;color:var(--navy);font-size:1.1rem}
+.faq-item p{margin:0;color:var(--muted);line-height:1.6}
+.faq-item:last-child{border-bottom:none}
+
+/* Policy Details Styles */
+.back-link{color:#0066cc;text-decoration:none;font-size:0.95rem;display:inline-block;margin-bottom:1.5rem}
+.back-link:hover{text-decoration:underline}
+.policy-header-box{background:var(--yellow);padding:2rem;border-radius:20px;margin-bottom:2rem;display:flex;flex-direction:column}
+.policy-header-box h2{margin:0 0 0.5rem 0;color:var(--navy);font-size:1.6rem}
+.vehicle-meta{margin:0 0 1.5rem 0;color:var(--navy);font-size:0.9rem;opacity:0.8}
+.header-footer{display:flex;justify-content:space-between;margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid rgba(0,43,69,0.2)}
+.header-left,.header-right{color:var(--navy)}
+.header-left .label,.header-right .label{margin:0;font-size:0.85rem;opacity:0.8}
+.header-left .value,.header-right .value{margin:0;font-size:1.2rem;font-weight:600}
+.policy-details-section{margin-bottom:2rem}
+.policy-details-section h2{margin:0 0 0.5rem 0;color:var(--navy)}
+.policy-number-large{margin:0 0 1.5rem 0;color:var(--muted);font-size:0.95rem}
+.policy-info{margin:1.5rem 0;background:#f9f9f9;padding:1.5rem;border-radius:12px}
+.info-row{display:flex;justify-content:space-between;align-items:center;margin:0.75rem 0;padding-bottom:0.75rem;border-bottom:1px solid #e6e9ee}
+.info-row:last-child{border-bottom:none}
+.info-label{color:var(--muted);font-weight:500}
+.info-value{color:var(--navy);font-weight:600}
+.info-value.active-status{background:#d4edda;color:#155724;padding:0.3rem 0.8rem;border-radius:4px}
+.policy-actions-section{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2rem}
+.action-box{background:#ffffff;padding:1.5rem;border-radius:20px;text-align:center;cursor:pointer;transition:all 0.2s;border:2px solid #e6e9ee}
+.action-box:hover{transform:translateY(-4px);box-shadow:0 8px 16px rgba(0,43,69,0.15)}
+.action-box h3{margin:0 0 0.5rem 0;color:var(--navy);font-size:1.1rem}
+.action-box p{margin:0;color:var(--navy);font-size:0.9rem;opacity:0.8}
+.policy-period-box{background:#ffffff;padding:1.5rem;border-radius:20px;text-align:center;margin-top:1.5rem;border:1px solid #e6e9ee}
+.policy-period-box h3{margin:0 0 0.5rem 0;color:var(--navy);font-size:1.1rem}
+.policy-period-box p{margin:0;color:var(--navy);font-size:0.95rem;font-weight:500}
+.vehicle-specs-box{background:#ffffff;padding:1.5rem;border-radius:20px;margin-top:1.5rem;border:1px solid #e6e9ee}
+.vehicle-specs-box h3{margin:0 0 1rem 0;color:var(--navy);font-size:1.1rem;text-align:center}
+.specs-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.spec-item{background:#ffffff;padding:1rem;border-radius:12px;text-align:center;border:1px solid #e6e9ee}
+.spec-item.full-width{grid-column:1 / -1}
+.spec-label{display:block;color:var(--muted);font-size:0.9rem;opacity:0.8;margin-bottom:0.3rem}
+.spec-value{display:block;color:var(--navy);font-size:1rem;font-weight:600}
+.mot-tax-box{background:#ffffff;padding:1.5rem;border-radius:20px;margin-top:1.5rem;border:1px solid #e6e9ee}
+.mot-tax-box h3{margin:0 0 1rem 0;color:var(--navy);font-size:1.1rem;text-align:center}
+.mot-tax-content{display:flex;flex-direction:column;gap:0.75rem}
+.mot-tax-row{display:flex;justify-content:space-between;align-items:center;padding:0.75rem;background:#ffffff;border-radius:8px;border:1px solid #e6e9ee}
+.mot-tax-label{color:var(--navy);font-weight:500;font-size:0.95rem}
+.mot-tax-value{color:var(--navy);font-weight:600;font-size:0.95rem}
+.cover-details-box{background:#ffffff;padding:1.5rem;border-radius:20px;margin-top:1.5rem;border:1px solid #e6e9ee}
+.cover-details-box h3{margin:0 0 1rem 0;color:var(--navy);font-size:1.1rem;text-align:center}
+.cover-list{list-style:none;padding:0;margin:0}
+.cover-list li{padding:0.75rem;margin:0.5rem 0;color:var(--navy);font-weight:500;font-size:0.95rem}
+.cover-list li:before{content:"● ";color:#28a745;margin-right:0.75rem;font-size:1.2rem}
+.addons-box{background:#ffffff;padding:1.5rem;border-radius:20px;margin-top:1.5rem;border:1px solid #e6e9ee}
+.addons-box h3{margin:0 0 1rem 0;color:var(--navy);font-size:1.1rem;text-align:center}
+.addons-list{list-style:none;padding:0;margin:0}
+.addons-list li{padding:0.75rem;margin:0.5rem 0;color:var(--navy);font-weight:500;font-size:0.95rem}
+.addons-list li:before{content:"● ";color:#ffc107;margin-right:0.75rem;font-size:1.2rem}
+
+@media(max-width:768px){
+  .policy-actions-section{grid-template-columns:1fr}
+}
+
+/* Policy Card Styles */
+.policy-card{background:#f9f9f9;border:1px solid #e6e9ee;border-radius:20px;padding:1.5rem;margin:1rem 0;position:relative}
+.policy-number{position:absolute;top:1rem;left:1rem;background:var(--navy);color:var(--yellow);padding:0.5rem 0.75rem;border-radius:50px;font-size:0.85rem;font-weight:600}
+.policy-badge{position:absolute;top:1rem;right:1rem;background:var(--yellow);color:var(--navy);padding:0.5rem 1rem;border-radius:50px;font-size:0.85rem;font-weight:600}
+.policy-card h4{margin:2rem 0 0.5rem 0;color:var(--navy);font-size:1.1rem;font-weight:600}
+.policy-dates{margin:0;color:var(--muted);font-size:0.95rem}
+
+
+

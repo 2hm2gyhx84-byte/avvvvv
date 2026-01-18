@@ -1,0 +1,10 @@
+name = "aviva-portal-api"
+main = "cloudflare/worker.js"
+compatibility_date = "2026-01-16"
+workers_dev = true
+
+# Fill `account_id`, or run `wrangler login` and `wrangler init` to configure.
+
+[[d1_databases]]
+binding = "DB"
+database_name = "aviva_db"

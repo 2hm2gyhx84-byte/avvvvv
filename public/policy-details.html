@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <link rel="manifest" href="/manifest.json">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Policy Details — MyAviva Insurance</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <script>
+    window.API_BASE = 'https://aviva-portal-api.myaviva.workers.dev';
+  </script>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="brand">MyAviva Insurance</h1>
+      <nav>
+        <button id="logoutBtn" class="btn btn-outline">Log out</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="card">
+      <a href="/dashboard.html" class="back-link">← Back to Dashboard</a>
+      
+      <div class="policy-header-box">
+        <h2>VOLKSWAGEN GOLF SPORT FSI (115BHP)</h2>
+        <p class="vehicle-meta">2006 • Silver</p>
+        
+        <div class="header-footer">
+          <div class="header-left">
+            <p class="label">Premium</p>
+            <p class="value">£178.33</p>
+          </div>
+          <div class="header-right">
+            <p class="label">Days Remaining</p>
+            <p class="value">365 days</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="policy-details-section">
+          <p class="policy-number-large">Policy Number: 687224</p>
+          <div class="info-row">
+            <span class="info-label">Status:</span>
+            <span class="info-value active-status">Active</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Start Date:</span>
+            <span class="info-value">15 March 2024</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">End Date:</span>
+            <span class="info-value">15 March 2025</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Coverage Type:</span>
+            <span class="info-value">Comprehensive</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Annual Premium:</span>
+            <span class="info-value">£450.00</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="policy-actions-section">
+        <div class="action-box" onclick="alert('View your profile');">
+          <h3>Profile</h3>
+          <p>View your account profile</p>
+        </div>
+        <div class="action-box" onclick="alert('Download policy document');">
+          <h3>Download Policy</h3>
+          <p>Download your policy document</p>
+        </div>
+      </div>
+
+      <div class="policy-period-box">
+        <h3>📅 Policy Period</h3>
+        <p>15 March 2024 - 15 March 2025</p>
+      </div>
+
+      <div class="vehicle-specs-box">
+        <h3>🛣️ Vehicle Specifications</h3>
+        <div class="specs-grid">
+          <div class="spec-item">
+            <span class="spec-label">Top Speed</span>
+            <span class="spec-value">119 mph</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Power</span>
+            <span class="spec-value">115 BHP</span>
+          </div>
+          <div class="spec-item full-width">
+            <span class="spec-label">Gearbox</span>
+            <span class="spec-value">6 Speed Manual</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="vehicle-specs-box">
+        <h3>⛽ Engine & Fuel</h3>
+        <div class="specs-grid">
+          <div class="spec-item">
+            <span class="spec-label">Engine Capacity</span>
+            <span class="spec-value">1.6L</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Cylinders</span>
+            <span class="spec-value">4</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Fuel Type</span>
+            <span class="spec-value">Petrol</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Consumption</span>
+            <span class="spec-value">41.5 L/100km</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="mot-tax-box">
+        <h3>🔧 MOT & Tax</h3>
+        <div class="mot-tax-content">
+          <div class="mot-tax-row">
+            <span class="mot-tax-label">MOT Expiry</span>
+            <span class="mot-tax-value">24/01/2026</span>
+          </div>
+          <div class="mot-tax-row">
+            <span class="mot-tax-label">Tax</span>
+            <span class="mot-tax-value">Valid until 1 October</span>
+          </div>
+          <div class="mot-tax-row">
+            <span class="mot-tax-label">Status</span>
+            <span class="mot-tax-value">2026</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cover-details-box">
+        <h3>� �🛡️ Cover Details</h3>
+        <ul class="cover-list">
+          <li>Comprehensive Cover</li>
+          <li>Personal Accident Cover</li>
+          <li>Third Party Cover</li>
+          <li>Fire & Theft Protection</li>
+        </ul>
+      </div>
+      <div class="addons-box">
+        <h3>ℹ️ Add-ons</h3>
+        <ul class="addons-list">
+          <li>Motor Legal Protection</li>
+          <li>Breakdown Cover</li>
+        </ul>
+      </div>    </div>
+  </main>
+
+  <footer class="bottom-footer">
+    <button class="footer-btn" onclick="location.href='/dashboard.html'">Home</button>
+    <button class="footer-btn" onclick="location.href='/faq.html'">FAQ</button>
+    <button class="footer-btn" id="footerLogout">Logout</button>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script>
+    (async function(){
+      const me = await apiGet('/api/me');
+      if (!me.user) {
+        location.href = '/login.html';
+        return;
+      }
+      document.getElementById('logoutBtn').addEventListener('click', async () => {
+        try { await apiPost('/api/logout', {}); } catch (e) {}
+        localStorage.removeItem('aviva_token');
+        location.href = '/';
+      });
+      document.getElementById('footerLogout').addEventListener('click', async () => {
+        try { await apiPost('/api/logout', {}); } catch (e) {}
+        localStorage.removeItem('aviva_token');
+        location.href = '/';
+      });
+    })();
+  </script>
+</body>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/js/service-worker.js');
+      });
+    }
+  </script>
+</html>

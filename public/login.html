@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <link rel="manifest" href="/manifest.json">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MyAviva Login</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="brand">AVIVA</h1>
+    </div>
+  </header>
+
+
+  <main class="login-container">
+    <div class="login-box">
+      <h2>MyAviva Login</h2>
+      
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="email">Username</label>
+          <p class="helper-text">This might be your email address</p>
+          <input type="email" id="email" name="email" required />
+        </div>
+
+        <div class="form-group checkbox-group">
+          <input type="checkbox" id="rememberMe" name="rememberMe" />
+          <label for="rememberMe" class="checkbox-label">Remember username</label>
+        </div>
+
+        <div class="form-group">
+          <div class="label-with-link">
+            <label for="password">Password</label>
+            <a href="#" class="show-password-link">Show password</a>
+          </div>
+          <input type="password" id="password" name="password" required />
+        </div>
+
+        <a href="#" class="forgot-link">Forgot your details?</a>
+
+        <button type="submit" class="btn btn-login">Log in</button>
+      </form>
+    </div>
+
+    <div class="registration-box">
+      <h2>MyAviva Registration</h2>
+      <p>If you haven't viewed any of your policies online before, you'll need to register first.</p>
+      <a href="/register.html" class="btn-register">Register</a>
+    </div>
+  </main>
+
+  <script src="/js/main.js"></script>
+  <script>
+    document.querySelector('.show-password-link').addEventListener('click', (e) => {
+      e.preventDefault();
+      const input = document.getElementById('password');
+      const link = e.target;
+      if (input.type === 'password') {
+        input.type = 'text';
+        link.textContent = 'Hide password';
+      } else {
+        input.type = 'password';
+        link.textContent = 'Show password';
+      }
+    });
+  </script>
+</body>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/js/service-worker.js');
+      });
+    }
+  </script>
+</html>
+
